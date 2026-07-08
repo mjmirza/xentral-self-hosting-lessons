@@ -79,12 +79,21 @@ paths. OpenXE answers a different API with a completely different authentication
 method. No environment variable, base URL, or flag bridges that. It is not a
 configuration gap. It is a different product era.
 
-## 5. If you still want to run OpenXE. the recipe that works
+## 5. If you still want to run OpenXE, on any host
 
-OpenXE is a fine sandbox if you simply want an ERP you own to click around in.
+OpenXE is a fine sandbox if you simply want an ERP you own to click around in. It
+is a standard PHP and MariaDB app in Docker, so it runs on any Linux server from
+any provider. Nothing in this recipe is tied to a particular host or a particular
+DNS or TLS setup. A small virtual server anywhere is enough, for example
+DigitalOcean, Linode or Akamai, Vultr, Scaleway, Hetzner, OVH, IONOS, Contabo,
+AWS (Lightsail or EC2), Google Cloud, Azure, Oracle Cloud free tier, or a box
+under your own desk. The steps are the same on all of them.
+
 The full, sanitized recipe is in [scripts/deploy-openxe.sh](scripts/deploy-openxe.sh).
 The parts that cost real time are called out below so you do not lose them the
-way this experiment did.
+way this experiment did. Two of them are universal to OpenXE on any host, and the
+last one is only about pointing a domain at the box, which also works the same
+everywhere.
 
 ### Trap 1. the base image drifted from Debian 12 to Debian 13
 
@@ -107,20 +116,25 @@ of your chosen password and clear the legacy columns. Set the account email on t
 linked address row, not the user row, because the user record points at an address
 id where the email lives.
 
-### Trap 3. you cannot front a raw origin box with a Cloudflare Worker
+### Getting it onto a domain, the same on any provider
 
-A Worker that reverse-proxies to an origin IP over plain HTTP is rejected by
-Cloudflare with error 1003 before it reaches the origin. Do not try to bridge a
-self-hosted box to a domain that way. The clean path is a direct DNS A record to
-the box, plus a reverse proxy on the box, such as Caddy, doing its own automatic
-TLS.
+Putting the box on a real domain with HTTPS is two steps, and they are identical no
+matter who hosts the server or who runs your DNS.
 
-### Trap 4. a wrangler login token cannot write DNS records
+1. Point a DNS A record for your subdomain at the server's public IP address. Any
+   DNS provider works, whether that is your domain registrar, the hosting company's
+   own DNS, or a service such as Cloudflare or Route 53.
+2. Run a reverse proxy on the box that obtains a free TLS certificate
+   automatically. Caddy does this in a few lines, and nginx with certbot, or
+   Traefik, do the same. Any of them works on any host.
 
-The OAuth scopes that `wrangler login` grants include zone read and Workers write,
-but not DNS edit. To add the A record you need either the Cloudflare dashboard or
-a separate API token scoped to zone DNS edit. Plan for that before you try to
-point a domain at the box from a script.
+That is the whole story on every provider. Two warnings from this experiment so you
+skip the detours they cost, and neither is an OpenXE problem. First, do not try to
+route the domain through a serverless edge function that fetches the origin box. On
+one such platform that specific attempt fails outright, and it is the wrong shape
+regardless of the platform. Second, a plain command-line login token from a DNS or
+edge provider may not carry permission to write DNS records, so create the record
+in the provider dashboard or with an API token that has DNS edit rights.
 
 ## 6. The cost angle
 
