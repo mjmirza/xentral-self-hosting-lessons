@@ -15,6 +15,9 @@
 # own domain in the DOMAIN variable below.
 #
 # Tested shape. Ubuntu 24.04, ~4 GB RAM plus swap, Docker + compose plugin.
+# Host-agnostic. Runs on any Linux VPS from any provider (DigitalOcean, Linode,
+# Vultr, Scaleway, Hetzner, OVH, IONOS, Contabo, AWS, GCP, Azure, or your own box).
+# Caddy is used for TLS below, but nginx + certbot or Traefik work the same way.
 
 set -uo pipefail
 
