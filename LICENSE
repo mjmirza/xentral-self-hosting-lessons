@@ -1,23 +1,40 @@
-Copyright (c) 2026 Mirza Iqbal
+OpenRoots Agent License 1.0
+===========================
 
-These notes and the accompanying script are licensed under the Creative Commons
-Attribution 4.0 International License (CC BY 4.0).
+Canonical text: https://openroots.org/licenses/ora/1.0/legalcode
+Plain summary:  https://openroots.org/licenses/ora/1.0
 
-You are free to share and adapt this material for any purpose, including
-commercially, on one condition. You must give appropriate credit to the author,
-provide a link back to this repository, and indicate if changes were made. You may
-do so in any reasonable manner, but not in any way that suggests the author
-endorses you or your use.
+Effective:   2026-08-24
+Sunset Date: 2029-08-24
+Fallback:    Apache-2.0
 
-The full license text is at:
-https://creativecommons.org/licenses/by/4.0/legalcode
-A human-readable summary is at:
-https://creativecommons.org/licenses/by/4.0/
+This licence is one fixed text, adopted word for word. The canonical
+version lives at the address above and is never edited. A correction
+is issued as a new version and this text remains reachable permanently.
 
-No warranty. This material and the script are provided as is, without warranty of
-any kind. The author takes no responsibility for any outcome of using them. You
-act at your own risk.
+PRIOR LICENCE NOTICE
+--------------------
+This repository was previously distributed under custom.
+That grant is irrevocable for every version released under it.
+Anyone who obtained an earlier release keeps their custom rights
+in perpetuity. This licence governs releases from 2026-08-24 onward.
 
-"Xentral" and other product names referenced here are trademarks of their
-respective owners. This is an independent record and is not affiliated with,
-endorsed by, or supported by any of them.
+SUMMARY OF TERMS
+----------------
+Root tier     Free and unconditional at or below USD 2,000,000 annual
+              revenue, and for any individual, nonprofit, school, or
+              government body. Rights equivalent in kind to MIT.
+
+Canopy tier   Above the threshold, 0.5% of revenue attributable to
+              this work, capped at USD 250,000 per year. Self-reported
+              quarterly. The rate is never negotiated.
+
+Compute tier  AI training is not granted by either tier above. It
+              requires a separate Compute licence at every tier.
+              Human reading and search indexing are unaffected.
+
+Sunset        On 2029-08-24 this release converts to Apache-2.0,
+              automatically, binding successors and insolvency trustees.
+
+The operative text is the canonical version linked above. This file is
+a pointer to it, not a substitute for it.
