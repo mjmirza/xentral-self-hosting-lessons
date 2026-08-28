@@ -1,5 +1,7 @@
 # Self-hosting Xentral for an AI connector, and why it is a dead end
 
+[![OpenRoots ORA 2.3](https://openroots.org/badge/ora.svg)](https://openroots.org/licenses/ora/2.3)
+
 A written record of a real experiment, so the next person who wants to self-host
 Xentral to point an AI agent or MCP at it can read this in five minutes instead
 of spending a day proving what the market already decided.
